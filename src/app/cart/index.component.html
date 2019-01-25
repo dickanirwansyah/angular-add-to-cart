@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="container-fluid">
+    <h3 class="alert alert-info">Cart Info</h3>
+    <hr />
+    <b>Total : {{total | currency:"Rp "}}</b>
+    <hr/>
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Id</th>
+          <th>Image</th>
+          <th>Nama</th>
+          <th>Quantity</th>
+          <th>SubTotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td align="center">
+            <button type="button" (click)="remove(item.product.id)" class="btn btn-danger">
+                <i class="fa fa-window-close-o"></i>
+            </button>
+          </td>
+          <td>{{item.product.id}}</td>
+          <td>
+              <img width="120px" height="120px" src="{{item.product.photo}}"/>
+          </td>
+          <td>{{item.product.name}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.product.price * item.quantity | currency:"Rp "}}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Option</th>
+          <th>Id</th>
+          <th>Image</th>
+          <th>Nama</th>
+          <th>Quantity</th>
+          <th>SubTotal</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
